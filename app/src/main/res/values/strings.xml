@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">カロリーチェンジ</string>
+    <string name="title_activity_food_list">FoodListActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- リリース用：ca-app-pub-8686506704666954/5083006024 -->
+    <!-- テスト用：ca-app-pub-3940256099942544/6300978111 -->
+    <string name="banner_ad_id">ca-app-pub-8686506704666954/5083006024</string>
+
+    <!-- リリース用：ca-app-pub-8686506704666954/8822090420 -->
+    <!-- テスト用：ca-app-pub-3940256099942544/1033173712 -->
+    <string name="interstitial_ad_id">ca-app-pub-8686506704666954/8822090420</string>
+</resources>

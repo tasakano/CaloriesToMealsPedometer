@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app.caloriestomealspedometer">
+
+    <application
+        android:name=".CaloriesToMealsPedometerApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CaloriesToMealsPedometer">
+        <activity android:name=".AppDescriptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FoodEditActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FoodListActivity"
+            android:label="@string/title_activity_food_list"
+            android:theme="@style/Theme.CaloriesToMealsPedometer.NoActionBar"
+            android:screenOrientation="portrait" />
+        <activity android:name=".GoogleSinginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- Release AdMob App ID: ca-app-pub-4973750815225055~3241287223 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4973750815225055~3241287223" />
+
+        <receiver
+            android:name=".AlarmNotification"
+            android:process=":remote" >
+        </receiver>
+
+    </application>
+
+</manifest>

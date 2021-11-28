@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFCFC"
+    tools:context="com.app.caloriestomealspedometer.MainActivity">
+
+    <TextView
+        android:id="@+id/ma_moveMinutesText"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ED7D31"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_distanceText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ma_distanceText"
+        app:layout_constraintTop_toTopOf="@+id/ma_distanceText" />
+
+    <TextView
+        android:id="@+id/ma_stepsText"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ED7D31"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ma_distanceText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ma_stepsImage" />
+
+    <TextView
+        android:id="@+id/ma_distanceText"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ED7D31"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_stepsText"
+        app:layout_constraintEnd_toStartOf="@+id/ma_moveMinutesText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ma_stepsText"
+        app:layout_constraintTop_toTopOf="@+id/ma_stepsText" />
+
+    <ImageView
+        android:id="@+id/ma_distanceImage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_stepsImage"
+        app:layout_constraintEnd_toEndOf="@+id/ma_distanceUnitText"
+        app:layout_constraintStart_toStartOf="@+id/ma_distanceText"
+        app:layout_constraintTop_toTopOf="@+id/ma_stepsImage"
+        app:srcCompat="@drawable/sports_shoes" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ma_foodFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="65dp"
+        android:backgroundTint="#ED7D31"
+        android:clickable="true"
+        app:backgroundTint="#ED7D31"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/rice" />
+
+    <ImageView
+        android:id="@+id/ma_topBar"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="#ED7D31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ma_stepsImage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/ma_stepsUnitText"
+        app:layout_constraintStart_toStartOf="@+id/ma_stepsText"
+        app:layout_constraintTop_toBottomOf="@+id/ma_caloriesText"
+        app:srcCompat="@drawable/footprints" />
+
+    <ImageView
+        android:id="@+id/ma_moveMinutesImage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_distanceImage"
+        app:layout_constraintEnd_toEndOf="@+id/ma_moveMinutesUnitText"
+        app:layout_constraintStart_toStartOf="@+id/ma_moveMinutesText"
+        app:layout_constraintTop_toTopOf="@+id/ma_distanceImage"
+        app:srcCompat="@drawable/walk" />
+
+    <ImageView
+        android:id="@+id/ma_caloriesImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_caloriesText"
+        app:layout_constraintEnd_toStartOf="@+id/ma_caloriesText"
+        app:layout_constraintTop_toTopOf="@+id/ma_caloriesText"
+        app:srcCompat="@drawable/fire" />
+
+    <TextView
+        android:id="@+id/ma_caloriesText"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#ED7D31"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ma_topBar" />
+
+    <TextView
+        android:id="@+id/ma_caloriesUnitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="kcal"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_caloriesText"
+        app:layout_constraintStart_toEndOf="@+id/ma_caloriesText" />
+
+    <TextView
+        android:id="@+id/ma_stepsUnitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="歩"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_stepsText"
+        app:layout_constraintStart_toEndOf="@+id/ma_stepsText" />
+
+    <TextView
+        android:id="@+id/ma_distanceUnitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="km"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_distanceText"
+        app:layout_constraintStart_toEndOf="@+id/ma_distanceText" />
+
+    <TextView
+        android:id="@+id/ma_moveMinutesUnitText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_moveMinutesText"
+        app:layout_constraintStart_toEndOf="@+id/ma_moveMinutesText" />
+
+    <ImageView
+        android:id="@+id/ma_foundationImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/ma_foodFloatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ma_stepsText"
+        app:srcCompat="@drawable/food_frame" />
+
+    <TextView
+        android:id="@+id/ma_caloriesConsumedTodayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="本日の消費カロリーは"
+        android:textSize="16dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/ma_foundationImage"
+        app:layout_constraintTop_toBottomOf="@+id/ma_distanceText" />
+
+    <ImageView
+        android:id="@+id/ma_foodImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/ma_foodText"
+        app:layout_constraintEnd_toEndOf="@+id/ma_foundationImage"
+        app:layout_constraintStart_toStartOf="@+id/ma_foundationImage"
+        app:layout_constraintTop_toBottomOf="@+id/ma_caloriesConsumedTodayText" />
+
+    <TextView
+        android:id="@+id/ma_numberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textColor="#ED7D31"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_foundationImage"
+        app:layout_constraintEnd_toEndOf="@+id/ma_foundationImage"
+        app:layout_constraintStart_toStartOf="@+id/ma_foundationImage" />
+
+    <TextView
+        android:id="@+id/ma_foodText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ma_numberText"
+        app:layout_constraintEnd_toEndOf="@+id/ma_foundationImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ma_foundationImage" />
+
+    <TextView
+        android:id="@+id/ma_foodUnitText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="18dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_foundationImage"
+        app:layout_constraintEnd_toEndOf="@+id/ma_foundationImage"
+        app:layout_constraintStart_toEndOf="@+id/ma_numberText"
+        app:layout_constraintTop_toBottomOf="@+id/ma_foodText" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_foundationImage"
+        app:layout_constraintEnd_toEndOf="@+id/ma_foundationImage"
+        app:layout_constraintStart_toStartOf="@+id/ma_foundationImage"
+        app:layout_constraintTop_toTopOf="@+id/ma_foundationImage" />
+
+    <ImageButton
+        android:id="@+id/ma_googleSingOutButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#ED7D31"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ma_topBar"
+        app:srcCompat="@drawable/human_button" />
+
+    <LinearLayout
+        android:id="@+id/layad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/ma_additionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="右下のボタンから食事データを追加しましょう"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ma_foundationImage"
+        app:layout_constraintEnd_toEndOf="@+id/ma_foundationImage"
+        app:layout_constraintStart_toStartOf="@+id/ma_foundationImage"
+        app:layout_constraintTop_toTopOf="@+id/ma_foundationImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
