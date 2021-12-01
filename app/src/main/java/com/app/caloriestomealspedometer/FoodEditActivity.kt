@@ -255,7 +255,7 @@ class FoodEditActivity : AppCompatActivity() {
         //削除ボタンを押したとき
         fea_deleteButton.setOnClickListener {
             if (foodId == checkFoodId){
-                editor.putInt("CHECK_POSITION",-1).apply()
+                editor.putLong("CHECK_FOOD_ID",-1).apply()
                 editor.putString("CHECK_FOOD_IMAGE_PATH","default").apply()
                 editor.putLong("CHECK_CALORIE", 0L).apply()
                 editor.putString("CHECK_NAME", "").apply()
