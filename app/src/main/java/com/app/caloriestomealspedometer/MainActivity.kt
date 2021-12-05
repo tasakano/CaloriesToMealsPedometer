@@ -176,9 +176,16 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
         Fitness.getHistoryClient(this, GoogleSignIn.getAccountForExtension(this, fitnessOptions))
             .readData(request)
             .addOnSuccessListener { response ->
-                val totalSteps = response.buckets.flatMap { it.dataSets }.flatMap { it.dataPoints }.sumBy { it.getValue(Field.FIELD_STEPS).asInt() }
-                Log.i(ContentValues.TAG, "Total steps: $totalSteps")
-                ma_stepsText.text = totalSteps.toString()
+                try {
+                    val totalSteps = response.buckets.flatMap { it.dataSets }.flatMap { it.dataPoints }.sumBy { it.getValue(Field.FIELD_STEPS).asInt() }
+                    Log.i(ContentValues.TAG, "Total steps: $totalSteps")
+                    ma_stepsText.text = totalSteps.toString()
+                } catch (ex: Exception){
+                    Toast.makeText(this,"[FIELD_STEPS]:Exception ${ex.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+            .addOnFailureListener {  e ->
+                Toast.makeText(this,"[FIELD_STEPS]:FailureListener ${e.message}", Toast.LENGTH_LONG).show()
             }
 
 
@@ -195,11 +202,12 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
                     ma_distanceText.text = "%.2f".format(totalDistances)
                 } catch (ex: Exception) {
                     Log.d(ContentValues.TAG, "Exception ${ex.message}")
-                    ma_distanceText.text = "Exception ${ex.message}"
+                    Toast.makeText(this,"[TYPE_DISTANCE_DELTA]:Exception ${ex.message}", Toast.LENGTH_LONG).show()
                 }
             }
             .addOnFailureListener { e ->
                 Log.i(ContentValues.TAG, "There was a problem getting steps.", e)
+                Toast.makeText(this,"[TYPE_DISTANCE_DELTA]:FailureListener ${e.message}", Toast.LENGTH_LONG).show()
             }
 
         Fitness.getHistoryClient(this, GoogleSignIn.getAccountForExtension(this, fitnessOptions))
@@ -211,11 +219,12 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
                     ma_moveMinutesText.text = totalMoveMinutes.toString()
                 } catch (ex: Exception) {
                     Log.d(ContentValues.TAG, "Exception ${ex.message}")
-                    ma_moveMinutesText.text = "Exception ${ex.message}"
+                    Toast.makeText(this,"[TYPE_MOVE_MINUTES]:Exception ${ex.message}", Toast.LENGTH_LONG).show()
                 }
             }
             .addOnFailureListener { e ->
                 Log.i(ContentValues.TAG, "There was a problem getting steps.", e)
+                Toast.makeText(this,"[TYPE_MOVE_MINUTES]:FailureListener ${e.message}", Toast.LENGTH_LONG).show()
             }
 
         Fitness.getHistoryClient(this, GoogleSignIn.getAccountForExtension(this, fitnessOptions))
@@ -252,10 +261,12 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
                     }
                 } catch (ex: Exception) {
                     Log.d(ContentValues.TAG, "Exception ${ex.message}")
+                    Toast.makeText(this,"[TYPE_CALORIES_EXPENDED]:Exception ${ex.message}", Toast.LENGTH_LONG).show()
                 }
             }
             .addOnFailureListener { e ->
                 Log.i(ContentValues.TAG, "There was a problem getting steps.", e)
+                Toast.makeText(this,"[TYPE_CALORIES_EXPENDED]:FailureListener ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
 
