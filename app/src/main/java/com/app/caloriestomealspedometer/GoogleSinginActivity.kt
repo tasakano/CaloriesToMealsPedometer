@@ -14,12 +14,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.fitness.FitnessOptions
+import com.google.android.gms.fitness.data.DataType
 import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.activity_google_singin.*
 
 class GoogleSinginActivity : AppCompatActivity() {
 
     private val RC_SIGN_IN = 1
+    private val REQUEST_OAUTH_REQUEST_CODE = 2
 
     private lateinit var mGoogleSignInClient : GoogleSignInClient
 
@@ -43,6 +46,18 @@ class GoogleSinginActivity : AppCompatActivity() {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
         }
+
+        if (requestCode == REQUEST_OAUTH_REQUEST_CODE){
+            if (resultCode == -1) {
+                //0.5秒後にMainActivityに遷移する
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }, 500)
+            } else {
+                Toast.makeText(this,"Google アカウントのデータへのアクセス権が取得できませんでした。", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
@@ -56,11 +71,8 @@ class GoogleSinginActivity : AppCompatActivity() {
             editor.putInt("isSingIn",1).apply()
 
             Toast.makeText(this,"Googleアカウントとの連携に成功しました", Toast.LENGTH_SHORT).show()
-            //2秒後にMainActivityに遷移する
-            Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }, 2000)
+
+            requestPermission()
 
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
@@ -68,6 +80,29 @@ class GoogleSinginActivity : AppCompatActivity() {
             Log.w(ContentValues.TAG, "signInResult:failed code=" + e.statusCode)
             Toast.makeText(this,"Googleアカウントとの連携に失敗しました", Toast.LENGTH_SHORT).show()
             //updateUI(null)
+        }
+    }
+
+    private fun requestPermission(){
+        val fitnessOptions = FitnessOptions.builder()
+            .addDataType(DataType.TYPE_CALORIES_EXPENDED)
+            .addDataType(DataType.TYPE_STEP_COUNT_DELTA)
+            .addDataType(DataType.AGGREGATE_CALORIES_EXPENDED)
+            .addDataType(DataType.AGGREGATE_STEP_COUNT_DELTA)
+            .addDataType(DataType.TYPE_DISTANCE_DELTA)
+            .addDataType(DataType.AGGREGATE_DISTANCE_DELTA)
+            .addDataType(DataType.TYPE_MOVE_MINUTES)
+            .addDataType(DataType.AGGREGATE_MOVE_MINUTES)
+            .build()
+
+        if (!GoogleSignIn.hasPermissions(GoogleSignIn.getLastSignedInAccount(this), fitnessOptions)) {
+            GoogleSignIn.requestPermissions(this, REQUEST_OAUTH_REQUEST_CODE, GoogleSignIn.getLastSignedInAccount(this), fitnessOptions)
+        } else {
+            //0.5秒後にMainActivityに遷移する
+            Handler(Looper.getMainLooper()).postDelayed({
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }, 500)
         }
     }
 
