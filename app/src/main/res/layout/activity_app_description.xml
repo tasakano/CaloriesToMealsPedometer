@@ -121,19 +121,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/ada_functionText2" />
 
             <TextView
-                android:id="@+id/ada_functionText4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:text="毎日23時に、プッシュ通知を送信する。"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ada_functionText3" />
-
-            <TextView
                 android:id="@+id/ada_descriptionText3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

@@ -13,7 +13,7 @@ class AppDescriptionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_description)
 
-        val list= mutableListOf(ada_functionText1,ada_functionText2,ada_functionText3,ada_functionText4)
+        val list= mutableListOf(ada_functionText1,ada_functionText2,ada_functionText3)
         for (functionText in list){
             val text = functionText.text
             val spannableStringBuilder = SpannableStringBuilder("")
