@@ -19,11 +19,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.Splash" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_drawable</item>
+    <style name="AppTheme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/main</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
     </style>
 
-    <style name="Theme.CaloriesToMealsPedometer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.CaloriesToMealsPedometer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

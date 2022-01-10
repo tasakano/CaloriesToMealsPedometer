@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
         if (pref.getInt("isAlarmSet",0) == 1){
             val intent = Intent(applicationContext, AlarmNotification::class.java)
             intent.putExtra("RequestCode", reqCode)
-            pending = PendingIntent.getBroadcast(applicationContext, reqCode, intent, 0)
+            pending = PendingIntent.getBroadcast(applicationContext, reqCode, intent, PendingIntent.FLAG_MUTABLE)
             am = getSystemService(ALARM_SERVICE) as AlarmManager
             am!!.cancel(pending)
             editor.putInt("isAlarmSet",0).apply()
@@ -279,7 +280,8 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.AppTheme_Splash)
+        installSplashScreen()
+        setTheme(R.style.Theme_CaloriesToMealsPedometer)
         setContentView(R.layout.activity_main)
 
 //        //MAS SDKの初期化
@@ -343,7 +345,7 @@ class MainActivity : AppCompatActivity(),SingOutConfirmationDialog.Listener {
         //通知のセット
         val intent = Intent(applicationContext, AlarmNotification::class.java)
         intent.putExtra("RequestCode", reqCode)
-        pending = PendingIntent.getBroadcast(applicationContext, reqCode, intent, 0)
+        pending = PendingIntent.getBroadcast(applicationContext, reqCode, intent, PendingIntent.FLAG_MUTABLE)
 
         //通知がセットされていないかつサインインした状態であれば、通知をセットする
         if (pref.getInt("isAlarmSet",0) == 0 && isSingIn == 1){

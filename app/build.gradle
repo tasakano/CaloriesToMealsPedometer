@@ -7,15 +7,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
         applicationId "com.app.caloriestomealspedometer"
         minSdkVersion 26
-        targetSdkVersion 30
-        versionCode 11
-        versionName "1.0.9"
+        targetSdkVersion 31
+        versionCode 12
+        versionName "1.1.0"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -58,6 +58,12 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:19.2.0")
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    constraints {
+        implementation('androidx.work:work-runtime:2.7.0') {
+            because 'previous versions have a bug impacting this application'
+        }
+    }
     implementation 'com.yodo1.mas:full:4.3.2'
+    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
 
 }
